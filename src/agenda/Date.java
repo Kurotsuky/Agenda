@@ -1,4 +1,4 @@
-package Agenda;
+package agenda;
 
 public class Date 
 {
@@ -54,4 +54,8 @@ public class Date
     {
         return day + "-" + month + "-" + year;
     }
+
+    public Integer getDay() { return day; }
+    public Integer getMonth() { return month; }
+    public Integer getYear() { return year; }
 }

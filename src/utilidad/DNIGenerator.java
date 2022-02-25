@@ -1,4 +1,4 @@
-package Utilidad;
+package utilidad;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ public class DNIGenerator
     public static void main(String[] args) 
     {
         Scanner sc = new Scanner(System.in);
-        int dni = sc.nextInt();
-        System.out.println(dni + LETTER[dni%23]);
+        Integer dni = sc.nextInt();
+        System.out.println(dni.toString() + LETTER[dni%23]);
     }
 }

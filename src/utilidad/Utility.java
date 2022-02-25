@@ -1,4 +1,4 @@
-package Utilidad;
+package utilidad;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -316,13 +316,7 @@ public class Utility
         while(fileScanner.hasNextLine()) 
         {
             text += fileScanner.nextLine();
-            
-            if(fileScanner.hasNextLine()) 
-            {
-                text += delim;
-            }
         }
-        text = text.replace("\\" + delim, delim);
         return GetStringText(text, delim);
     }
     

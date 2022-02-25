@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Agenda/Agenda.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Utilidad/Utility.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Utilidad/DNIGenerator.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Agenda/AgendaController.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Agenda/ContactSearcher.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Agenda/Contacto.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Agenda/DNI.java</file>
-            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/Agenda/Date.java</file>
+            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/agenda/forms/MenuPanel.java</file>
+            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/agenda/Contacto.java</file>
+            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/agenda/forms/UpdatePanel.java</file>
+            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/agenda/forms/AgendaForm.java</file>
+            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/agenda/Agenda.java</file>
+            <file>file:/G:/Otros%20ordenadores/Mi%20PC/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/agenda/ContactSearcher.java</file>
         </group>
     </open-files>
 </project-private>

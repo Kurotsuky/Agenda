@@ -1,15 +1,12 @@
-package Agenda;
+package agenda;
 
-import Utilidad.Menu;
-import Utilidad.Utility;
+import utilidad.Menu;
+import utilidad.Utility;
 import java.util.ArrayList;
 
 public class ContactSearcher 
 {
-    public enum Filter { Nombre, NombreYApellidos, Telefono, Movil, DNI }
-    
-    
-    public Contacto SearchContact(String text, Filter filter, ArrayList<Contacto> contactos) 
+    public ArrayList<Contacto> SearchContact(String text, ContactFilter filter, ArrayList<Contacto> contactos) 
     {
         switch(filter) 
         {
@@ -27,22 +24,28 @@ public class ContactSearcher
         return null;
     }
     
-    private Contacto SearchByName(String name, ArrayList<Contacto> contactos) 
+    private ArrayList<Contacto> SearchByName(String name, ArrayList<Contacto> contactos) 
     {
         ArrayList<Contacto> matches = new ArrayList<Contacto>();
+        int nameSize = name.length();
         
         for(int i = 0; i < contactos.size(); i++) 
         {
             Contacto current = contactos.get(i);
-            if(current.GetNombre().equals(name)) 
+            
+            if(current.GetNombre().length() < nameSize) { continue; }
+            
+            String matchString = current.GetNombre().substring(0, nameSize);
+            
+            if(matchString.equals(name)) 
             {
                 matches.add(current);
             }
         }
-        return CheckMatches(matches);
+        return matches;
     }
     
-    private Contacto SearchByNameAndSurname(String nameAndSurnames, ArrayList<Contacto> contactos) 
+    private ArrayList<Contacto> SearchByNameAndSurname(String nameAndSurnames, ArrayList<Contacto> contactos) 
     {
         ArrayList<Contacto> matches = new ArrayList<Contacto>();
         String[] _nameAndSurnames = Utility.GetArrayOfString(nameAndSurnames);
@@ -71,10 +74,10 @@ public class ContactSearcher
                 matches.add(current);
             }
         }
-        return CheckMatches(matches);
+        return matches;
     }
     
-    private Contacto SearchByTelefono(String telefono, ArrayList<Contacto> contactos) 
+    private ArrayList<Contacto> SearchByTelefono(String telefono, ArrayList<Contacto> contactos) 
     {
         ArrayList<Contacto> matches = new ArrayList<Contacto>();
         
@@ -92,10 +95,10 @@ public class ContactSearcher
                 }
             }
         }
-        return CheckMatches(matches);
+        return matches;
     }
     
-    private Contacto SearchByMovil(String movil, ArrayList<Contacto> contactos) 
+    private ArrayList<Contacto> SearchByMovil(String movil, ArrayList<Contacto> contactos) 
     {
         ArrayList<Contacto> matches = new ArrayList<Contacto>();
         
@@ -113,10 +116,10 @@ public class ContactSearcher
                 }
             }
         }
-        return CheckMatches(matches);
+        return matches;
     }
     
-    private Contacto SearchByDNI(String dni, ArrayList<Contacto> contactos) 
+    private ArrayList<Contacto> SearchByDNI(String dni, ArrayList<Contacto> contactos) 
     {
         ArrayList<Contacto> matches = new ArrayList<Contacto>();
         
@@ -128,23 +131,10 @@ public class ContactSearcher
                 matches.add(current);
             }
         }
-        return CheckMatches(matches);
+        return matches;
     }
     
-    private Contacto CheckMatches(ArrayList<Contacto> matches) 
-    {
-        switch(matches.size()) 
-        {
-            case 0:
-                return null;
-            case 1:
-                return matches.get(0);
-            default:
-                return matches.get(SelectContacto(matches));
-        }
-    }
-    
-    private int SelectContacto(ArrayList<Contacto> contactos) 
+    public Contacto SelectContacto(ArrayList<Contacto> contactos) 
     {
         String[] contactosArray = new String[contactos.size()];
         
@@ -152,6 +142,6 @@ public class ContactSearcher
         {
             contactosArray[i] = contactos.get(i).toString();
         }
-        return new Menu(contactosArray).AskOption();
+        return contactos.get(new Menu(contactosArray).AskOption());
     }
 }

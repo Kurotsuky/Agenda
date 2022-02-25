@@ -1,9 +1,10 @@
-package Agenda;
+package agenda;
 
-import Utilidad.Menu;
+import utilidad.Menu;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import utilidad.Utility;
 
 public class AgendaController 
 {
@@ -28,11 +29,18 @@ public class AgendaController
         String filepath = "Archivos\\Contactos.txt";
         File file = new File(filepath);
         
-        if(file.createNewFile()) 
+        if(file.createNewFile() || IsEmptyFile(file)) 
         {
             return DefaultAgenda();
         }
         return new Agenda(file);
+    }
+    
+    private static Boolean IsEmptyFile(File file) throws FileNotFoundException 
+    {
+        String[] text = Utility.fileToArray(file.getPath());
+        
+        return text[0].equals("");
     }
     
     private static Agenda DefaultAgenda() throws IOException 
@@ -76,4 +84,6 @@ public class AgendaController
                 break;
         }
     }
+
+    public static Agenda GetAgenda(){ return agenda; }
 }

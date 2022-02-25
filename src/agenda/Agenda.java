@@ -1,11 +1,13 @@
-package Agenda;
+package agenda;
 import java.util.ArrayList;
-import Utilidad.Utility;
-import Utilidad.Menu;
+import utilidad.Utility;
+import utilidad.Menu;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Agenda 
 {
@@ -67,6 +69,20 @@ public class Agenda
         Save();
     }
     
+    public void BorrarContacto(Contacto contacto)
+    {
+        
+        agenda.remove(contacto);
+        
+        try { 
+            Save(); 
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(Agenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void ModificarContacto() throws IOException 
     {
         Contacto searched = SearchContact();
@@ -106,9 +122,35 @@ public class Agenda
         Save();
     }
     
-    public void InsertarContacto() throws IOException 
+    public void ModificarContacto(Contacto contacto)
     {
-        Save();
+        
+        try {
+            Save();
+        } catch (IOException ex) {
+            Logger.getLogger(Agenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void InsertarContacto()
+    {
+        
+        try {
+            Save();
+        } catch (IOException ex) {
+            Logger.getLogger(Agenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void InsertarContacto(Contacto contacto)
+    {
+        agenda.add(contacto);
+        
+        try {
+            Save();
+        } catch (IOException ex) {
+            Logger.getLogger(Agenda.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void BuscarContacto() 
@@ -126,7 +168,7 @@ public class Agenda
     private Contacto SearchContact() 
     {
         ContactSearcher searcher = new ContactSearcher();
-        Contacto searched = null;
+        ArrayList<Contacto> searcheds = null;
         String searchText = "";
         
         System.out.println("Buscar por: ");
@@ -136,29 +178,44 @@ public class Agenda
         {
             case 1:
                 searchText = Utility.AskString("Nombre: ");
-                searched = searcher.SearchContact(searchText, ContactSearcher.Filter.Nombre, agenda);
+                searcheds = searcher.SearchContact(searchText, ContactFilter.Nombre, agenda);
                 break;
             case 2:
                 searchText += Utility.AskString("Nombre: ") + " \n";
                 searchText += Utility.AskString("Apellido1: ") + " \n";
                 searchText += Utility.AskString("Appelido2: ");
-                searched = searcher.SearchContact(searchText, ContactSearcher.Filter.NombreYApellidos, agenda);
+                searcheds = searcher.SearchContact(searchText, ContactFilter.NombreYApellidos, agenda);
                 break;
             case 3:
                 searchText = Utility.AskString("Telefono: ");
-                searched = searcher.SearchContact(searchText, ContactSearcher.Filter.Telefono, agenda);
+                searcheds = searcher.SearchContact(searchText, ContactFilter.Telefono, agenda);
                 break;
             case 4:
                 searchText = Utility.AskString("Movil: ");
-                searched = searcher.SearchContact(searchText, ContactSearcher.Filter.Movil, agenda);
+                searcheds = searcher.SearchContact(searchText, ContactFilter.Movil, agenda);
                 break;
             case 5:
                 searchText = Utility.AskString("DNI: ");
                 searchText = searchText.toUpperCase();
-                searched = searcher.SearchContact(searchText, ContactSearcher.Filter.DNI, agenda);
+                searcheds = searcher.SearchContact(searchText, ContactFilter.DNI, agenda);
                 break;
         }
-        return searched;
+        
+        return CheckMatches(searcheds);
+    }
+    
+    private Contacto CheckMatches(ArrayList<Contacto> matches) 
+    {
+        switch(matches.size()) 
+        {
+            case 0:
+                return null;
+            case 1:
+                return matches.get(0);
+            default:
+                ContactSearcher searcher = new ContactSearcher();
+                return searcher.SelectContacto(matches);
+        }
     }
     
     private ArrayList<Contacto> FillAgendaByFile(File file) throws FileNotFoundException 
@@ -204,7 +261,7 @@ public class Agenda
                 contacto.GetNombre(),
                 contacto.GetApellido1(),
                 contacto.GetApellido2(),
-                contacto.GetFechaNacimiento(),
+                contacto.GetStringFechaNacimiento(),
                 contacto.GetTelefonos()[0],
                 contacto.GetTelefonos()[1],
                 contacto.GetTelefonos()[2],
@@ -228,4 +285,6 @@ public class Agenda
         }
         return string;
     }
+
+    public ArrayList<Contacto> GetAgenda() { return agenda; }
 }

@@ -1,7 +1,7 @@
-package Agenda;
+package agenda;
 
-import Utilidad.Utility;
-import Utilidad.Menu;
+import utilidad.Utility;
+import utilidad.Menu;
 
 public class Contacto 
 {
@@ -19,7 +19,8 @@ public class Contacto
     
     public Contacto() 
     {
-        this(0, "", "", "", "", new Date(), new String[5], new String[5], "", "");
+        this(0, "", "", "", "", new Date(), new String[] {"", "", "", "", ""}, 
+                new String[] {"", "", "", "", ""}, "", "");
     }
     
     public Contacto(
@@ -73,13 +74,29 @@ public class Contacto
         return contact;
     }
     
+    public String toStringSimple() 
+    {
+        String contact = "NN -> TT";
+        
+        contact = contact.replace("NN", nombre);
+        
+        if(!movil[0].equals("")) 
+        {
+            contact = contact.replace("TT", movil[0]);
+        }
+        contact = contact.replace("TT", telefono[0]);
+        
+        return contact;
+    }
+    
     public String GetNombre() { return nombre; }
     public String GetApellido1() { return apellido1; }
     public String GetApellido2() { return apellido2; }
     public String[] GetTelefonos() { return telefono; }
     public String[] GetMoviles() { return movil; }
     public String GetDNI() { return dni.GetValor(); }
-    public String GetFechaNacimiento() { return fechaNacimiento.toString(); }
+    public Date GetFechaNacimiento() { return fechaNacimiento; }
+    public String GetStringFechaNacimiento() { return fechaNacimiento.toString(); }
     public String GetEmail() { return email; }
     public String GetDireccion() { return direccion; }
     public void SetNombre(String nombre) { this.nombre = nombre; }
@@ -89,6 +106,8 @@ public class Contacto
     public void SetFechaNacimiento(int day, int month, int year) { this.fechaNacimiento = new Date(day, month, year); }
     public void SetEmail(String email) { this.email = email; }
     public void SetDireccion(String direccion) { this.direccion = direccion; }
+    public void SetTelefono(String[] telefono) { this.telefono = telefono; }
+    public void SetMovil(String[] movil) { this.movil = movil; }
     
     public void SetTelefono(String telefono) 
     { 
@@ -103,6 +122,11 @@ public class Contacto
         this.telefono[index] = telefono; 
     }
     
+    public void SetTelefono(String telefono, int index) 
+    { 
+        this.telefono[index] = telefono; 
+    }
+    
     public void SetMovil(String movil) 
     { 
         String text = "";
@@ -113,6 +137,11 @@ public class Contacto
         }
         
         int index = new Menu(text).AskOption();
+        this.movil[index] = movil; 
+    }
+    
+    public void SetMovil(String movil, int index) 
+    { 
         this.movil[index] = movil; 
     }
 }
