@@ -12,6 +12,10 @@ import java.util.logging.Logger;
 
 public class Utility
 {
+    public static int RandomNumber(int min, int max) {
+        return (int)Math.floor(Math.random()*(max-min+1)+min);
+    }
+    
     public static int AskInt() 
     {
         Scanner sc = new Scanner(System.in);
