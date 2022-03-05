@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Controller.AgendaController;
-import Models.SaveAgendaSystem;
+import controller.AgendaController;
+import models.SaveAgendaSystem;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 

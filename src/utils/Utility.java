@@ -1,4 +1,4 @@
-package utilidad;
+package utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Utility
 {
@@ -221,6 +223,16 @@ public class Utility
         return date;
     }
     
+    public static Boolean AskOption(String text, String yes, String no) {
+        String chosen;
+        do {
+            chosen = Utility.AskString(text + " " + yes + "/" + no + " ");
+        } 
+        while(!chosen.equals(yes) && !chosen.equals(no));
+        
+        return chosen.equals(yes);
+    }
+    
     public static String GetStringOfArray(String[] array) 
     {
         String string = "";
@@ -243,6 +255,18 @@ public class Utility
     public static String[] GetArrayOfString(String string) 
     {
         StringTokenizer st = new StringTokenizer(string, "\n"); 
+        String[] array = new String[st.countTokens()];
+        
+        for(int i = 0; i < array.length; i++) 
+        {
+            array[i] = st.nextToken();
+        } 
+        return array;
+    }
+    
+    public static String[] GetArrayOfString(String string, String delim) 
+    {
+        StringTokenizer st = new StringTokenizer(string, delim); 
         String[] array = new String[st.countTokens()];
         
         for(int i = 0; i < array.length; i++) 
@@ -308,10 +332,14 @@ public class Utility
         }
     }
     
-    public static String[] GetFileText(File file, String delim) throws FileNotFoundException 
+    public static String[] GetFileText(File file, String delim)
     {
-        Scanner fileScanner = new Scanner(file);
         String text = "";
+        Scanner fileScanner = null;
+        try { fileScanner = new Scanner(file); } 
+        catch (FileNotFoundException ex) {
+            Logger.getLogger(Utility.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         while(fileScanner.hasNextLine()) 
         {
@@ -352,6 +380,37 @@ public class Utility
         for(int i = 0; i < array.length; i++) 
         {
             array[i] = list.get(i);
+        }
+        return array;
+    }
+    
+    public static String[] arrayToStringByUpper(String string) 
+    {
+        String[] array = new String[3];
+        String[] split = string.split(" ");
+        String element = "";
+        int index = 0;
+        
+        for (int i = 0; i < array.length; i++)
+        {
+            for(;index < split.length; index++) 
+            {
+                if(!Character.isUpperCase(split[index].charAt(0))) 
+                {
+                    element += split[index] + " ";
+                    continue;
+                }
+                element += split[index];
+                array[i] = element;
+                element = "";
+                index++;
+                break;
+            }
+            
+            if(array[i] == null) 
+            {
+                array[i] = "";
+            }
         }
         return array;
     }

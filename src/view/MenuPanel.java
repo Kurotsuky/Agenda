@@ -1,9 +1,9 @@
-package View;
+package view;
 
-import Controller.AgendaController;
-import Models.ContactSearcher;
-import Models.ContactFilter;
-import Models.Contacto;
+import controller.AgendaController;
+import models.ContactSearcher;
+import models.ContactFilter;
+import models.Contacto;
 import java.awt.Component;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;

@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import utilidad.Utility;
+import utils.Utility;
 
 public class SaveAgendaSystem {
     private final String FILEPATH;

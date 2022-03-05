@@ -1,9 +1,9 @@
-package Controller;
+package controller;
 
-import Models.Agenda;
-import Models.ContactSearcher;
-import Models.Contacto;
-import utilidad.Utility;
+import models.Agenda;
+import models.ContactSearcher;
+import models.Contacto;
+import utils.Utility;
 
 public class AgendaController 
 {

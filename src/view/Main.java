@@ -1,12 +1,12 @@
-package View;
+package view;
 
-import Controller.AgendaController;
-import Models.ContactSearcher;
-import Models.Contacto;
-import Models.Date;
-import Models.SaveAgendaSystem;
-import utilidad.Menu;
-import utilidad.Utility;
+import controller.AgendaController;
+import models.ContactSearcher;
+import models.Contacto;
+import models.Date;
+import models.SaveAgendaSystem;
+import utils.Menu;
+import utils.Utility;
 
 public class Main {
     

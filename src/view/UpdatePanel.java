@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Models.Agenda;
-import Models.Contacto;
+import models.Agenda;
+import models.Contacto;
 
 public class UpdatePanel extends javax.swing.JPanel
 {

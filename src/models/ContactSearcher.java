@@ -1,8 +1,8 @@
-package Models;
+package models;
 
-import utilidad.Menu;
+import utils.Menu;
 import java.util.ArrayList;
-import utilidad.Utility;
+import utils.Utility;
 
 public class ContactSearcher 
 {

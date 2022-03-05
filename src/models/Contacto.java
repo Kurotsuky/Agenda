@@ -1,7 +1,7 @@
-package Models;
+package models;
 
-import utilidad.Utility;
-import utilidad.Menu;
+import utils.Utility;
+import utils.Menu;
 
 public class Contacto 
 {

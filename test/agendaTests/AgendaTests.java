@@ -5,7 +5,12 @@
  */
 package agendaTests;
 
-import Models.*;
+import models.Contacto;
+import models.Agenda;
+import models.ContactSearcher;
+import models.DNI;
+import models.ContactFilter;
+import models.Date;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.junit.Before;
