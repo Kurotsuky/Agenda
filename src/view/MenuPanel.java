@@ -189,7 +189,7 @@ public class MenuPanel extends javax.swing.JPanel
         AgendaController agendaController = AgendaForm.getAgendaController();
         agendaController.borrarContacto(contacto);
         updateList();
-        AgendaForm.getSaveSystem().save(agendaController.getAgenda());
+        AgendaForm.getSaveSystem().save();
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCreateActionPerformed

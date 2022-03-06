@@ -10,6 +10,7 @@ import utils.Utility;
 
 public class SaveAgendaSystem {
     private final String FILEPATH;
+    private final Agenda AGENDA;
     
     private File file;
     
@@ -19,8 +20,13 @@ public class SaveAgendaSystem {
     }
     
     public SaveAgendaSystem(String filePath) {
+        this(filePath, new Agenda());
+    }
+    
+    public SaveAgendaSystem(String filePath, Agenda agenda) {
         FILEPATH = filePath;
         file = new File(FILEPATH);
+        AGENDA = agenda;
     }
     
     
@@ -34,7 +40,7 @@ public class SaveAgendaSystem {
         return fillAgendaByFile();
     }
     
-    private static Boolean IsEmptyFile(File file)
+    private Boolean IsEmptyFile(File file)
     {
         String[] text = {};
         try {
@@ -47,37 +53,33 @@ public class SaveAgendaSystem {
         return text[0].equals("");
     }
     
-    private static Agenda DefaultAgenda()
+    private Agenda DefaultAgenda()
     {
-        Agenda agenda = new Agenda();
-        
-        agenda.addContacto(new Contacto("43970914C", 
+        AGENDA.addContacto(new Contacto("43970914C", 
                 "Rodrigo", "Fernandez", "Perez", new Date(5, 11, 1999), 
                 new String[] {"922807250","","","",""}, 
                 new String[] {"672679054","","","",""}, 
                 "rodrigofernandez@gmail.com", "Calle San Agustin"));
-        agenda.addContacto(new Contacto("62709029N", 
+        AGENDA.addContacto(new Contacto("62709029N", 
                 "Manuel", "de la Casa", "Castillo", new Date(10, 4, 1989), 
                 new String[] {"922609125","","","",""}, 
                 new String[] {"610905834","","","",""}, 
                 "manuelcasas@gmail.com", "Calle Puerta Vieja"));
-        agenda.addContacto(new Contacto("47083903M", 
+        AGENDA.addContacto(new Contacto("47083903M", 
                 "Alvaro", "Reyes", "Delgado", new Date(24, 9, 2002), 
                 new String[] {"822409103","822609251","","",""}, 
                 new String[] {"649104732","","","",""}, 
                 "alvaroreyes@gmail.com", "Calle San Lazaro"));
         
-        return agenda;
+        return AGENDA;
     }
     
     private Agenda fillAgendaByFile()
     {
-        Agenda agenda = new Agenda();
         String[] infoFile = Utility.GetFileText(file, ",");
         
         for(int i = 0; i < infoFile.length; i+=17) 
         {
-            int id = agenda.getContactos().size();
             String dni = infoFile[i];
             String nombre = infoFile[i+1];
             String apellido1 = infoFile[i+2];
@@ -90,12 +92,12 @@ public class SaveAgendaSystem {
             String email = infoFile[i+15];
             String direccion = infoFile[i+16];
             
-            agenda.addContacto(new Contacto(dni, nombre, apellido1, apellido2, fechaNacimiento, telefono, movil, email, direccion));
+            AGENDA.addContacto(new Contacto(dni, nombre, apellido1, apellido2, fechaNacimiento, telefono, movil, email, direccion));
         }
-        return agenda;
+        return AGENDA;
     }
     
-    public void save(Agenda agenda)
+    public void save()
     {
         createDirectories();
         
@@ -103,7 +105,7 @@ public class SaveAgendaSystem {
         try {
             if(!file.exists()) { file.createNewFile(); }
             fw = new FileWriter(file);
-            fw.write(agenda.toString());
+            fw.write(AGENDA.toString());
         } 
         catch (IOException e) {
             Logger.getLogger(SaveAgendaSystem.class.getName()).log(Level.SEVERE, null, e);

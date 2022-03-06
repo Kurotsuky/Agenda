@@ -60,7 +60,7 @@ public class AgendaForm extends javax.swing.JFrame
 
     public static void main(String args[])
     {
-        String filePath = "Archivos\\Contactos.txt";
+        String filePath = "archivos\\Contactos.txt";
         saveSystem = new SaveAgendaSystem(filePath);
         agendaController = new AgendaController(saveSystem.load());
         

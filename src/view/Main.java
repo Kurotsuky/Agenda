@@ -11,7 +11,7 @@ import utils.Utility;
 public class Main {
     
     public static void main(String[] args) {
-        String filePath = "Archivos\\Contactos.txt";
+        String filePath = "archivos\\Contactos.txt";
         SaveAgendaSystem saveSystem = new SaveAgendaSystem(filePath);
         AgendaController agendaController = new AgendaController(saveSystem.load());
         
@@ -25,7 +25,7 @@ public class Main {
         {
             optionSelected = new Menu("Crear Contacto \nBorrar Contacto \nModificar Contacto \nInsertar Contacto \nBuscar Contacto \nSalir").AskOption();
             selectFunction(agendaController, optionSelected);
-            saveSystem.save(agendaController.getAgenda());
+            saveSystem.save();
             
         } while(optionSelected != 6);
     }

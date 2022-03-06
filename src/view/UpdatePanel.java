@@ -18,6 +18,8 @@ public class UpdatePanel extends javax.swing.JPanel
     public UpdatePanel(AgendaForm agendaForm)
     {
         this.agendaForm = agendaForm;
+        moviles = new String[5];
+        telefonos = new String[5];
         initComponents();
         updateTextFields();
     }
@@ -247,7 +249,7 @@ public class UpdatePanel extends javax.swing.JPanel
         contacto.setMovil(moviles);
         contacto.setTelefono(telefonos);
         
-        AgendaForm.getSaveSystem().save(agenda);
+        AgendaForm.getSaveSystem().save();
         agendaForm.showPanel(AgendaForm.getMENU());
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -256,7 +258,7 @@ public class UpdatePanel extends javax.swing.JPanel
         int previousIndex = Integer.parseInt(evt.getItem().toString()) - 1;
         
         moviles[previousIndex] = txtMovil.getText();
-        txtMovil.setText(contacto.getMoviles()[currentIndex]);
+        txtMovil.setText(moviles[currentIndex]);
     }//GEN-LAST:event_cbxMovilItemStateChanged
 
     private void cbxTelefonoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTelefonoItemStateChanged
@@ -264,7 +266,7 @@ public class UpdatePanel extends javax.swing.JPanel
         int previousIndex = Integer.parseInt(evt.getItem().toString()) - 1;
         
         telefonos[previousIndex] = txtTelefono.getText();
-        txtTelefono.setText(contacto.getTelefonos()[currentIndex]);
+        txtTelefono.setText(telefonos[currentIndex]);
     }//GEN-LAST:event_cbxTelefonoItemStateChanged
 
     private void updateTextFields() 
@@ -346,8 +348,12 @@ public class UpdatePanel extends javax.swing.JPanel
     public void setContacto(Contacto contacto)
     {
         this.contacto = contacto;
-        moviles = contacto.getMoviles();
-        telefonos = contacto.getTelefonos();
+        
+        if(contacto != null) {
+            moviles = contacto.getMoviles();
+            telefonos = contacto.getTelefonos();
+        }
+        
         updateTextFields();
     }
 }
