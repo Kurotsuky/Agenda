@@ -1,5 +1,0 @@
-43970914C,Rodrigo,Fernandez,Perez,5-11-1999,922807250,,,,,672679054,,,,,rodrigofernandez@gmail.com,Calle San Agustin,
-62709029N,Manuel,de la Casa,Castillo,10-4-1989,922609125,,,,,610905834,,,,,manuelcasas@gmail.com,Calle Puerta Vieja,
-47083903M,Alvaro,Reyes,Delgado,24-9-2002,822409103,822609251,,,,649104732,,,,,alvaroreyes@gmail.com,Calle San Lazaro,
-54109717D,Adalberto,Perdomo,Abreu,3-5-2001,822902312,,,,,630639968,,,,,adalbertoperdomoabreu@gmail.com,Calle Rosendo Diaz Mendez,
-54109717D,Adalberto,Perdomo,Abreu,3-5-2001,822902312,,,,,630639968,,,,,adalbertoperdomoabreu@gmail.com,Calle Rosendo Diaz Mendez,
