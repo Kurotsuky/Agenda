@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/view/Main.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/test/agendaTests/AgendaTests.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/models/Contacto.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/view/UpdatePanel.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/view/AgendaForm.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/controller/AgendaController.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/view/MenuPanel.java</file>
+            <file>file:/C:/Users/adalb/Documents/1ºDAM/PRO/NetBeans/Proyectos/Agenda/src/models/SaveAgendaSystem.java</file>
+        </group>
     </open-files>
 </project-private>
